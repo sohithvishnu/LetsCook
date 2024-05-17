@@ -17,112 +17,58 @@
         max-width: 100%; 
     }
 
-    .body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-    }
-
     .header {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 2; 
-    background-color: rgba(255, 255, 255, 0.8); /* Add background color to improve readability */
-    padding: 12px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%; /* Adjust as needed */
-}
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 2;
+        padding: 12px 20px;
+        display: flex;
+        flex-direction: column; /* Changed to column direction */
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        text-align: center; /* Center the items */
+    }
 
     .logo {
-        font-size: 24px;
+        font-size: 248px; /* Increased font size for the logo */
         font-weight: bold;
         text-decoration: none;
-        color: rgb(0, 0, 0);
-    }
-
-    .search-bar-container {
-        position: flex;
-        flex: 0.9;
-    }
-
-    .search-bar {
-        background: transparent;
-        border: 2px solid black;
-        padding: 14px;
-        color: black;
-        width: 100%;
-        border-radius: 50px;
-        overflow: hidden;
-    }
-
-    input:focus {
-        outline: none;
-    }
-
-    i {
-        position: absolute;
-        top: 27px;
-       
-        right: 160px;
-        color: black;
-    }
-
-    .login-button {
-        display: inline-block;
-        padding: 8px 20px;
-        color: black;
-        text-decoration: none;
-        border: 2px solid black;
-        border-radius: 20px;
-        transition: background-color 0.3s, color 0.3s;
-    }
-
-    .login-button:hover {
-        background-color: black;
         color: white;
+        margin-bottom: 20px; /* Added margin bottom to separate logo from buttons */
     }
 
-
-    .button-group {
-        display: flex;
-        align-items: center;
-    }
-
-    .button-group a {
+    .login-button,
+    .Explore-button {
         display: inline-block;
-        padding: 8px 20px;
-        color: black;
+        padding: 12px 30px; /* Increased padding for the buttons */
+        font-size: 24px; /* Increased font size for the buttons */
+        color: white;
         text-decoration: none;
-        border: 2px solid black;
-        border-radius: 20px;
+        border: 2px solid white;
+        border-radius: 30px; /* Increased border radius for the buttons */
         transition: background-color 0.3s, color 0.3s;
-        margin-left: 10px;
+        margin: 10px; /* Increased margin to separate buttons */
     }
 
-    .button-group a:hover {
-        background-color: black;
-        color: white;
+    .login-button:hover,
+    .Explore-button:hover {
+        background-color: rgb(255, 255, 255);
+        color: rgb(40, 181, 136);
     }
 </style>
 <div class="mainImage"> 
-    <div class="header">
-        <a href="/" class="logo">Lets Cook</a>
-        <div class="button-group">
-            <a href="/" class="Home-button">Home</a>
-            <a href="/explore" class="Explore-button">Explore</a>
-        </div>
-        <div class="search-bar-container">
-            <input type="text" class="search-bar" placeholder="Search">
     
-        </div>
+    <div class="header">
+        <a href="/" class="logo">LetsCook</a>
         {#if isLoggedIn}
-          <a href="/dashboard" class="login-button">Dashboard</a>
+            <a href="/dashboard" class="login-button">Dashboard</a>
         {:else}
-          <a href="/authenticate" class="login-button">Login</a>
+            <a href="/authenticate" class="login-button">Login</a>
         {/if}
+        <a href="/explore" class="Explore-button">Explore</a>
     </div>
     <img src={viewSpaceImage} alt="View Space" class="mainImage">
 </div>
